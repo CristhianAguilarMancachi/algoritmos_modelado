@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generación de Números Aleatorios - Producto Medio</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/estilos.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Generación de Números Aleatorios - Producto Medio</h1>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link" id="cuadrado-medio-tab" href="cuadrado_medio.html" role="tab" aria-controls="cuadrado-medio" aria-selected="false">Cuadrado Medio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" id="producto-medio-tab" href="" role="tab" aria-controls="producto-medio" aria-selected="true">Producto Medio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="lineal-tab" href="lineal.html" role="tab" aria-controls="lineal" aria-selected="false">Algoritmo Lineal</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="multiplicativo-tab" href="multiplicativo.html" role="tab" aria-controls="multiplicativo" aria-selected="false">Algoritmo Multiplicativo</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="producto-medio" role="tabpanel" aria-labelledby="producto-medio-tab">
+                <div class="mt-4">
+                    <h3>Algoritmo de Producto Medio</h3>
+                    <form id="productoMedioForm">
+                        <div class="input-row d-flex align-items-center">
+                            <div class="form-group mr-2">
+                                <label for="x0">X₀ (Semilla)</label>
+                                <input type="number" class="form-control" id="x0" placeholder="Ingresa X₀" min="1" required>
+                                <div class="invalid-feedback">Por favor ingresa un número entero positivo.</div>
+                            </div>
+                            <div class="form-group mr-2">
+                                <label for="x1">X₁</label>
+                                <input type="number" class="form-control" id="x1" placeholder="Ingresa X₁" min="1" required>
+                                <div class="invalid-feedback">Por favor ingresa un número entero positivo.</div>
+                            </div>
+                            <div class="form-group mr-2">
+                                <label for="limite">Límite</label>
+                                <input type="number" class="form-control" id="limite" placeholder="Ingresa el límite" min="1" required>
+                                <div class="invalid-feedback">Por favor ingresa un número entero positivo.</div>
+                            </div>
+                            <div class="form-group ml-auto">
+                                <label for="decimales">Decimales</label>
+                                <input type="number" class="form-control bg-primary text-white" id="decimales" value="4" min="1" max="20" style="width: 80px;" required>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <button type="submit" class="btn btn-success mr-2">Generar</button>
+                            <button type="reset" class="btn btn-warning">Limpiar</button>
+                        </div>
+                    </form>
+                    
+                    <div class="table-container">
+                        <table class="table table-bordered mt-3">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">i</th>
+                                    <th scope="col">Y₁</th>
+                                    <th scope="col">Operación</th>
+                                    <th scope="col">X₁</th>
+                                    <th scope="col">R₁</th>
+                                </tr>
+                            </thead>
+                            <tbody id="resultados">
+                                <!-- Las filas se generarán dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="mensajeDegeneracion" class="mt-3 text-danger"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/producto_medio.js"></script>
+</body>
+</html>

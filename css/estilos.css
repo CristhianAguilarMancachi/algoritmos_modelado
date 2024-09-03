@@ -1,0 +1,20 @@
+/* Ajuste de estilos personalizados */
+.input-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-row .form-group {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.input-row .form-group:last-child {
+    margin-right: 0;
+}
+
+.table-container {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 20px;
+}
