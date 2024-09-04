@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Página de Algoritmos</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Sección del encabezado -->
+    <header>
+        <section class="textos-header">
+            <h1>Generación de Números Aleatorios:</h1>
+            <h2>Algoritmos y Aplicaciones</h2>
+        </section>
+        <div class="wave" style="height: 150px; overflow: hidden;">
+            <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                <path d="M0.00,49.98 C150.00,150.00 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path>
+            </svg>
+        </div>
+    </header>
+
+    <section class="contenedor sobre-nosotros">
+        <h2 class="titulo">Algoritmos de Generación de Números Pseudoaleatorios</h2>
+        <div class="contenedor-sobre-nosotros">
+            <img src="img/algoritmo_2.jpg" alt="Algoritmos de Generación" class="imagen-about-us">
+            <div class="contenido-textos">
+                <h3><span>1</span>Cuadrado Medio</h3>
+                <p>El algoritmo de Cuadrado Medio genera números pseudoaleatorios elevando al cuadrado un número semilla y extrayendo los dígitos centrales del resultado. Es simple, pero puede sufrir de degeneración rápida si no se elige adecuadamente la semilla.</p>
+                <h3><span>2</span>Producto Medio</h3>
+                <p>El método de Producto Medio utiliza dos números semillas que se multiplican entre sí, y del resultado se extraen los dígitos centrales. Este algoritmo mejora la aleatoriedad en comparación con el Cuadrado Medio.</p>
+                <h3><span>3</span>Lineal</h3>
+                <p>El generador lineal utiliza una fórmula matemática de la forma X<sub>n+1</sub> = (aX<sub>n</sub> + c) mod m, donde los parámetros a, c, y m determinan la calidad de la secuencia. Es uno de los más utilizados por su eficiencia y facilidad de implementación.</p>
+                <h3><span>4</span>Multiplicativo</h3>
+                <p>El generador multiplicativo es una variación del generador lineal donde c = 0. Utiliza solo un multiplicador y un módulo para producir números pseudoaleatorios, siendo rápido y eficiente en su ejecución.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección de portafolio -->
+    <section class="portafolio">
+        <div class="contenedor">
+            <h2 class="titulo">ALGORITMOS</h2>
+            <div class="galeria-port">
+                <!-- Algoritmo Cuadrado Medio -->
+                <div class="algoritmo-card">
+                    <a href="cuadrado_medio.html" class="imagen-port">
+                        <img src="img/algoritmo.jpg" alt="Algoritmo Cuadrado Medio">
+                        <div class="hover-galeria">
+                            <img src="img/neural.png" alt="Icono Neural">
+                        </div>
+                    </a>
+                    <p class="nombre-algoritmo">ALGORITMO CUADRADO MEDIO</p>
+                </div>
+
+                <!-- Algoritmo Producto Medio -->
+                <div class="algoritmo-card">
+                    <a href="producto_medio.html" class="imagen-port">
+                        <img src="img/algoritmo_3.jpg" alt="Algoritmo Producto Medio">
+                        <div class="hover-galeria">
+                            <img src="img/neural.png" alt="Icono Neural">
+                        </div>
+                    </a>
+                    <p class="nombre-algoritmo">ALGORITMO PRODUCTO MEDIO</p>
+                </div>
+
+                <!-- Algoritmo Lineal -->
+                <div class="algoritmo-card">
+                    <a href="lineal.html" class="imagen-port">
+                        <img src="img/algoritmo.jpg" alt="Algoritmo Lineal">
+                        <div class="hover-galeria">
+                            <img src="img/neural.png" alt="Icono Neural">
+                        </div>
+                    </a>
+                    <p class="nombre-algoritmo">ALGORITMO LINEAL</p>
+                </div>
+
+                <!-- Algoritmo Multiplicativo -->
+                <div class="algoritmo-card">
+                    <a href="multiplicativo.html" class="imagen-port">
+                        <img src="img/algoritmo_3.jpg" alt="Algoritmo Multiplicativo">
+                        <div class="hover-galeria">
+                            <img src="img/neural.png" alt="Icono Neural">
+                        </div>
+                    </a>
+                    <p class="nombre-algoritmo">ALGORITMO MULTIPLICATIVO</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
