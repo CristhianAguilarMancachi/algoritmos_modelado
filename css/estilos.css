@@ -164,9 +164,13 @@ main .sobre-nosotros {
 
 
 /* Ajustes adicionales */
+/* Ajustes para la tabla */
 .table-container {
     margin-top: 20px;
+    max-height: 400px; /* Limita la altura máxima del contenedor de la tabla */
+    overflow-y: auto; /* Añade barra de desplazamiento vertical */
 }
+
 
 .input-group-text {
     background-color: #1d4eaa;
