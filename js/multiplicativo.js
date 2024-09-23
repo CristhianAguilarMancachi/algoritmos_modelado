@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const X0 = parseInt(inputX0.value);
         const decimales = parseInt(inputDecimales.value);
-        const limite = m; // Límite de números a generar
+        const limite = parseInt(inputP.value) + 1; // Límite ajustado a P + 1
 
         if (isNaN(X0) || X0 <= 0 || isNaN(decimales) || decimales <= 0) {
             mensajeDegeneracion.textContent = 'Por favor, ingresa valores válidos.';
