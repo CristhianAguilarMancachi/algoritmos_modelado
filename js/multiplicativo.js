@@ -75,43 +75,45 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         let X = X0;
-        let resultadosGenerados = [];
-        let degeneracionDetectada = false; // Corregido el nombre de la variable
+        let generados = new Map(); // Mapa para detectar degeneración
+        let degeneracionDetectada = false;
+        let posicionDegeneracion = -1;
+        let riPrimeraDegeneracion = '';
+        let iPrimeraDegeneracion = -1;
 
         for (let i = 1; i <= limite; i++) {
-            if (degeneracionDetectada) {
-                break;
-            }
-            
             let nuevoX = (a * X) % m;
-            let ri = nuevoX / (m-1);
-            resultadosGenerados.push({i, X, nuevoX, ri});
+            let ri = (nuevoX / (m - 1)).toFixed(decimales);
+
+            // Detección de degeneración
+            if (generados.has(ri)) {
+                if (posicionDegeneracion === -1) {
+                    posicionDegeneracion = i;
+                    iPrimeraDegeneracion = generados.get(ri);
+                    riPrimeraDegeneracion = ri;
+                    mensajeDegeneracion.innerHTML = `La secuencia se degenera desde la posición ${i}, i=${iPrimeraDegeneracion}; ri=${riPrimeraDegeneracion} igual a i=${i}; ri=${ri}`;
+                    mensajeDegeneracion.style.color = 'red';
+                }
+            } else {
+                generados.set(ri, i);
+            }
+
+            const fila = document.createElement('tr');
+            fila.innerHTML = `
+                <td>${i}</td>
+                <td>${a} * ${X} % ${m}</td>
+                <td>${nuevoX}</td>
+                <td>${ri}</td>
+            `;
+            resultados.appendChild(fila);
 
             // Actualizar X para la siguiente iteración
             X = nuevoX;
-
-            // Mostrar degeneración si se detecta
-            if (resultadosGenerados.length > 1 && resultadosGenerados[resultadosGenerados.length - 1].ri === resultadosGenerados[resultadosGenerados.length - 2].ri) {
-                degeneracionDetectada = true;
-                mensajeDegeneracion.textContent = '¡Degeneración detectada!';
-            }
         }
 
-        // Mostrar resultados en la tabla
-        resultadosGenerados.forEach(resultado => {
-            const fila = document.createElement('tr');
-            fila.innerHTML = `
-                <td>${resultado.i}</td>
-                <td>${a} * ${resultado.X} % ${m}</td>
-                <td>${resultado.nuevoX}</td>
-                <td>${resultado.ri.toFixed(decimales)}</td>
-            `;
-            resultados.appendChild(fila);
-        });
-
-        // Mostrar mensaje de degeneración en rojo si se detectó
-        if (degeneracionDetectada) {
-            mensajeDegeneracion.style.color = 'red';
+        // Si no se detecta degeneración
+        if (posicionDegeneracion === -1) {
+            mensajeDegeneracion.textContent = 'La secuencia no se degenera.';
         }
     });
 });
