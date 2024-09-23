@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!isNaN(P) && P > 0) {
             const g = Math.floor((Math.log(P) / Math.log(2)));
             calculoG.textContent = `g = (Ln(${P})/Ln(2)) = ${g}`;
-            
+
             // Calcula 'm' con el nuevo valor de 'g'
             const calculoM = document.getElementById('calculoM');
             const m = Math.pow(2, g);
@@ -76,8 +76,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const a = 1 + 4 * k;
         const m = Math.pow(2, g);
         let xi = X0;
+        const limite = P + 1; // Límite ajustado a P + 1
 
-        for (let i = 0; i < 10; i++) { // Limite de iteraciones
+        for (let i = 0; i < limite; i++) { // Cambiar límite de iteraciones
             const operacion = `(${a} * ${xi} + ${c}) mod(${m})`;
             const resultadoOperacion = (a * xi + c) % m; // Calcula el resultado de la operación
             const ri = (resultadoOperacion / (m - 1)).toFixed(decimales); // Calcula ri
