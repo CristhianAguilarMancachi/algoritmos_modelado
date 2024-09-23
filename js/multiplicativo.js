@@ -75,22 +75,20 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         let X = X0;
-        let generados = new Map(); // Mapa para detectar degeneración
-        let degeneracionDetectada = false;
-        let posicionDegeneracion = -1;
-        let riPrimeraDegeneracion = '';
-        let iPrimeraDegeneracion = -1;
+        const generados = new Map(); // Mapa para detectar degeneración
+        let degeneracionDetectada = false; // Variable para rastrear si se detectó degeneración
+        let riPrimeraDegeneracion = ''; // Para almacenar el primer ri degenerado
+        let iPrimeraDegeneracion = -1; // Para almacenar la primera posición donde ocurre degeneración
 
         for (let i = 1; i <= limite; i++) {
             let nuevoX = (a * X) % m;
             let ri = (nuevoX / (m - 1)).toFixed(decimales);
 
-            // Detección de degeneración
             if (generados.has(ri)) {
-                if (posicionDegeneracion === -1) {
-                    posicionDegeneracion = i;
-                    iPrimeraDegeneracion = generados.get(ri);
-                    riPrimeraDegeneracion = ri;
+                if (!degeneracionDetectada) {
+                    degeneracionDetectada = true;
+                    iPrimeraDegeneracion = generados.get(ri); // Obtener la primera posición de degeneración
+                    riPrimeraDegeneracion = ri; // Guardar el valor de ri degenerado
                     mensajeDegeneracion.innerHTML = `La secuencia se degenera desde la posición ${i}, i=${iPrimeraDegeneracion}; ri=${riPrimeraDegeneracion} igual a i=${i}; ri=${ri}`;
                     mensajeDegeneracion.style.color = 'red';
                 }
@@ -107,12 +105,10 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
             resultados.appendChild(fila);
 
-            // Actualizar X para la siguiente iteración
             X = nuevoX;
         }
 
-        // Si no se detecta degeneración
-        if (posicionDegeneracion === -1) {
+        if (!degeneracionDetectada) {
             mensajeDegeneracion.textContent = 'La secuencia no se degenera.';
         }
     });
