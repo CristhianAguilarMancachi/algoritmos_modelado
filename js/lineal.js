@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let xi = X0;
         const limite = P + 1; // Límite ajustado a P + 1
 
-        for (let i = 0; i < limite; i++) { // Cambiar límite de iteraciones
+        for (let i = 1; i <= limite; i++) { // Cambiar límite de iteraciones y empezar en 1
             const operacion = `(${a} * ${xi} + ${c}) mod(${m})`;
             const resultadoOperacion = (a * xi + c) % m; // Calcula el resultado de la operación
             const ri = (resultadoOperacion / (m - 1)).toFixed(decimales); // Calcula ri
